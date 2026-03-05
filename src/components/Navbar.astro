@@ -1,0 +1,98 @@
+---
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Approach', href: '#approach' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="container-main flex items-center justify-between h-20">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300 group-hover:scale-105">
+        <path d="M8 26L16 6L24 26" stroke="#3ECFB4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="11" y1="19" x2="21" y2="19" stroke="#3ECFB4" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="text-white font-heading text-xl tracking-tight">Affine</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-10">
+      {navLinks.map(({ label, href }) => (
+        <a
+          href={href}
+          class="text-body-sm text-steel-400 hover:text-white transition-colors duration-200"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+
+    <!-- CTAs -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="#contact" class="btn-secondary text-caption">Request a Quote</a>
+      <a href="#terminal" class="btn-primary text-caption">Launch Terminal</a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-btn" class="md:hidden text-steel-300 hover:text-white p-2" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="4" y1="7" x2="20" y2="7" class="origin-center transition-transform duration-300" id="line1"/>
+        <line x1="4" y1="12" x2="20" y2="12" class="transition-opacity duration-300" id="line2"/>
+        <line x1="4" y1="17" x2="20" y2="17" class="origin-center transition-transform duration-300" id="line3"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden">
+    <div class="container-main py-8 border-t border-white/[0.06] flex flex-col gap-6 bg-midnight-950/95 backdrop-blur-xl">
+      {navLinks.map(({ label, href }) => (
+        <a href={href} class="text-body-lg text-steel-300 hover:text-white transition-colors">
+          {label}
+        </a>
+      ))}
+      <hr class="my-2" />
+      <a href="#contact" class="btn-secondary text-center">Request a Quote</a>
+      <a href="#terminal" class="btn-primary text-center">Launch Terminal</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar')!;
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 80) {
+      navbar.classList.add('bg-midnight-950/90', 'backdrop-blur-xl', 'border-b', 'border-white/[0.04]');
+    } else {
+      navbar.classList.remove('bg-midnight-950/90', 'backdrop-blur-xl', 'border-b', 'border-white/[0.04]');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  let isOpen = false;
+
+  menuBtn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      isOpen = false;
+    });
+  });
+</script>

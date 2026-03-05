@@ -1,0 +1,44 @@
+---
+const stats = [
+  { value: '20%+', label: 'Of crypto volume now trades on DEXs' },
+  { value: '24/7', label: 'Always-on liquidity provision' },
+  { value: '<50ms', label: 'Quote response latency' },
+];
+---
+
+<section id="about" class="section-padding relative">
+  <div class="container-main">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <!-- Left -->
+      <div class="reveal">
+        <div class="label mb-6">About Affine</div>
+        <h2 class="font-heading text-h2 text-white mb-8">
+          Accelerating the Decentralization of Global Markets
+        </h2>
+        <div class="space-y-5 text-body-lg text-steel-300">
+          <p>
+            Decentralized exchanges have come a long way since the early days of EtherDelta. Today, DEXs account for more than 20% of total crypto trading volume — driven by the rapid rise of platforms like Jupiter and Hyperliquid.
+          </p>
+          <p>
+            Yet despite this progress, decentralized markets still lag behind centralized exchanges when it comes to asset coverage and pricing efficiency.
+          </p>
+          <p>
+            Affine Trading was founded to bridge that gap. We focus on market making within DeFi markets, helping align DEX pricing with CEX benchmarks and driving liquidity where it's needed most.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right — Stats -->
+      <div class="reveal lg:pt-16" style="transition-delay: 0.15s;">
+        <div class="space-y-0">
+          {stats.map((stat, i) => (
+            <div class={`py-8 ${i < stats.length - 1 ? 'border-b border-white/[0.06]' : ''}`}>
+              <div class="font-heading text-h1 text-white mb-2">{stat.value}</div>
+              <div class="text-body text-steel-400">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
