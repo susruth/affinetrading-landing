@@ -7,92 +7,74 @@ const navLinks = [
 ];
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-  <div class="container-main flex items-center justify-between h-20">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out">
+  <div class="container-main flex items-center justify-between h-20 lg:h-24">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 group">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-300 group-hover:scale-105">
-        <path d="M8 26L16 6L24 26" stroke="#3ECFB4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="11" y1="19" x2="21" y2="19" stroke="#3ECFB4" stroke-width="2" stroke-linecap="round"/>
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" class="transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(62,207,180,0.3)]">
+        <path d="M8 26L16 6L24 26" stroke="#3ECFB4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="11" y1="19.5" x2="21" y2="19.5" stroke="#3ECFB4" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <span class="text-white font-heading text-xl tracking-tight">Affine</span>
+      <span class="text-white font-heading text-lg tracking-tight">Affine</span>
     </a>
 
     <!-- Desktop nav -->
-    <div class="hidden md:flex items-center gap-10">
+    <div class="hidden lg:flex items-center gap-12">
       {navLinks.map(({ label, href }) => (
-        <a
-          href={href}
-          class="text-body-sm text-steel-400 hover:text-white transition-colors duration-200"
-        >
+        <a href={href} class="relative text-[13px] text-steel-400 hover:text-white transition-colors duration-300 tracking-wide border-hover py-1">
           {label}
         </a>
       ))}
     </div>
 
     <!-- CTAs -->
-    <div class="hidden md:flex items-center gap-4">
-      <a href="#contact" class="btn-secondary text-caption">Request a Quote</a>
-      <a href="#terminal" class="btn-primary text-caption">Launch Terminal</a>
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="#contact" class="text-[13px] text-steel-400 hover:text-white transition-colors duration-300 tracking-wide px-5 py-2.5">
+        Request a Quote
+      </a>
+      <a href="#terminal" class="text-[13px] text-midnight-950 bg-accent hover:bg-accent-light px-5 py-2.5 font-medium transition-all duration-500 hover:shadow-[0_0_20px_rgba(62,207,180,0.15)]">
+        Launch Terminal
+      </a>
     </div>
 
     <!-- Mobile menu button -->
-    <button id="mobile-menu-btn" class="md:hidden text-steel-300 hover:text-white p-2" aria-label="Toggle menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-        <line x1="4" y1="7" x2="20" y2="7" class="origin-center transition-transform duration-300" id="line1"/>
-        <line x1="4" y1="12" x2="20" y2="12" class="transition-opacity duration-300" id="line2"/>
-        <line x1="4" y1="17" x2="20" y2="17" class="origin-center transition-transform duration-300" id="line3"/>
+    <button id="mobile-menu-btn" class="lg:hidden text-steel-400 hover:text-white p-2 transition-colors" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="17" y2="6"/>
+        <line x1="3" y1="10" x2="17" y2="10"/>
+        <line x1="3" y1="14" x2="17" y2="14"/>
       </svg>
     </button>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden">
-    <div class="container-main py-8 border-t border-white/[0.06] flex flex-col gap-6 bg-midnight-950/95 backdrop-blur-xl">
+  <div id="mobile-menu" class="lg:hidden hidden">
+    <div class="container-main py-12 border-t border-white/[0.04] flex flex-col gap-8 bg-midnight-950/98 backdrop-blur-2xl">
       {navLinks.map(({ label, href }) => (
-        <a href={href} class="text-body-lg text-steel-300 hover:text-white transition-colors">
-          {label}
-        </a>
+        <a href={href} class="text-h4 font-heading text-steel-300 hover:text-white transition-colors">{label}</a>
       ))}
-      <hr class="my-2" />
-      <a href="#contact" class="btn-secondary text-center">Request a Quote</a>
-      <a href="#terminal" class="btn-primary text-center">Launch Terminal</a>
+      <div class="flex flex-col gap-3 pt-4">
+        <a href="#contact" class="btn-secondary text-center justify-center">Request a Quote</a>
+        <a href="#terminal" class="btn-primary text-center justify-center">Launch Terminal</a>
+      </div>
     </div>
   </div>
 </nav>
 
 <script>
-  // Navbar scroll effect
   const navbar = document.getElementById('navbar')!;
-  let lastScroll = 0;
-
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-
-    if (currentScroll > 80) {
-      navbar.classList.add('bg-midnight-950/90', 'backdrop-blur-xl', 'border-b', 'border-white/[0.04]');
+    if (window.scrollY > 100) {
+      navbar.classList.add('bg-midnight-950/80', 'backdrop-blur-2xl', 'shadow-[0_1px_0_rgba(255,255,255,0.03)]');
     } else {
-      navbar.classList.remove('bg-midnight-950/90', 'backdrop-blur-xl', 'border-b', 'border-white/[0.04]');
+      navbar.classList.remove('bg-midnight-950/80', 'backdrop-blur-2xl', 'shadow-[0_1px_0_rgba(255,255,255,0.03)]');
     }
-
-    lastScroll = currentScroll;
   });
 
-  // Mobile menu toggle
   const menuBtn = document.getElementById('mobile-menu-btn')!;
   const mobileMenu = document.getElementById('mobile-menu')!;
-  let isOpen = false;
-
-  menuBtn.addEventListener('click', () => {
-    isOpen = !isOpen;
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Close mobile menu on link click
-  mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      isOpen = false;
-    });
-  });
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach((link) =>
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'))
+  );
 </script>

@@ -1,83 +1,115 @@
 ---
-const services = [
-  {
-    id: 'market-making',
-    label: '01',
-    title: 'Market Making',
-    description: 'We provide continuous, two-sided liquidity across decentralized venues. Our strategies align DEX pricing with CEX benchmarks, tightening spreads and reducing slippage for all market participants.',
-    features: [
-      'Continuous bid-ask quoting across DEX orderbooks and AMMs',
-      'CEX-DEX price alignment and arbitrage reduction',
-      'Custom liquidity programs for token issuers',
-      'Multi-chain coverage across major L1s and L2s',
-    ],
-    cta: { label: 'Request a Quote', href: '#contact' },
-  },
-  {
-    id: 'terminal',
-    title: 'Trading Terminal',
-    label: '02',
-    description: 'Access institutional-grade RFQ trading through our terminal. Complete KYC/KYB onboarding and trade directly with competitive pricing and deep liquidity pools.',
-    features: [
-      'Request-for-quote (RFQ) based execution',
-      'Competitive institutional pricing',
-      'Streamlined KYC/KYB onboarding',
-      'Secure, compliant trade settlement',
-    ],
-    cta: { label: 'Launch Terminal', href: '#terminal' },
-  },
-];
 ---
 
-<section id="services" class="section-padding relative">
-  <!-- Divider -->
-  <div class="container-main"><hr class="mb-24 md:mb-34" /></div>
-
+<section id="services" class="py-34 md:py-42 lg:py-48 relative">
   <div class="container-main">
-    <div class="reveal mb-20">
-      <div class="label mb-6">Services</div>
-      <h2 class="font-heading text-h2 text-white max-w-2xl">
-        Two Ways to Access Our Liquidity
+    <!-- Divider -->
+    <hr class="mb-34 lg:mb-42" />
+
+    <!-- Section header -->
+    <div class="reveal mb-30 lg:mb-38">
+      <div class="label mb-8">Services</div>
+      <h2 class="font-heading text-h1 text-white max-w-2xl mb-6">
+        Two Ways to Access<br/> Our Liquidity
       </h2>
+      <p class="text-body-lg text-steel-400 max-w-xl">
+        Whether you're a token project seeking a market maker or an institution looking to trade,
+        we have the infrastructure to serve you.
+      </p>
     </div>
 
-    <div class="space-y-20 lg:space-y-30">
-      {services.map((service, idx) => (
-        <div class="reveal grid lg:grid-cols-12 gap-10 lg:gap-16 items-start" style={`transition-delay: ${idx * 0.1}s;`}>
-          <!-- Number -->
-          <div class="lg:col-span-1">
-            <span class="font-mono text-caption text-accent">{service.label}</span>
+    <!-- Service 1: Market Making -->
+    <div class="reveal mb-30 lg:mb-42">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Label + Title -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="font-mono text-caption text-accent/60">01</span>
+            <div class="h-px flex-1 bg-white/[0.04]"></div>
           </div>
+          <h3 class="font-heading text-h2 text-white mb-6">Market Making</h3>
+          <p class="text-body-lg text-steel-400 leading-[1.85] mb-10">
+            We provide continuous, two-sided liquidity across decentralized venues.
+            Our strategies align DEX pricing with CEX benchmarks, tightening spreads
+            and reducing slippage for all market participants.
+          </p>
+          <a href="#contact" class="btn-secondary group">
+            <span>Request a Quote</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-500 group-hover:translate-x-1">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
+        </div>
 
-          <!-- Content -->
-          <div class="lg:col-span-5">
-            <h3 class="font-heading text-h3 text-white mb-5">{service.title}</h3>
-            <p class="text-body-lg text-steel-300 mb-8">{service.description}</p>
-            <a href={service.cta.href} class={idx === 0 ? 'btn-secondary' : 'btn-primary'}>
-              {service.cta.label}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Features -->
-          <div class="lg:col-span-5 lg:col-start-8">
-            <div class="glass rounded-sm p-8">
-              <ul class="space-y-5">
-                {service.features.map((feature) => (
-                  <li class="flex gap-4 text-body text-steel-200">
-                    <svg class="w-5 h-5 text-accent mt-0.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 10l4 4 8-8"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+        <!-- Features card -->
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="glass p-8 lg:p-10 stagger-children">
+            <div class="flex items-start gap-4 py-5 border-b border-white/[0.04]">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Continuous bid-ask quoting across DEX orderbooks and AMMs</span>
+            </div>
+            <div class="flex items-start gap-4 py-5 border-b border-white/[0.04]">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">CEX-DEX price alignment and arbitrage reduction</span>
+            </div>
+            <div class="flex items-start gap-4 py-5 border-b border-white/[0.04]">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Custom liquidity programs for token issuers</span>
+            </div>
+            <div class="flex items-start gap-4 py-5">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Multi-chain coverage across major L1s and L2s</span>
             </div>
           </div>
         </div>
-      ))}
+      </div>
+    </div>
+
+    <!-- Service 2: Trading Terminal -->
+    <div class="reveal">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Label + Title -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="font-mono text-caption text-accent/60">02</span>
+            <div class="h-px flex-1 bg-white/[0.04]"></div>
+          </div>
+          <h3 class="font-heading text-h2 text-white mb-6">Trading Terminal</h3>
+          <p class="text-body-lg text-steel-400 leading-[1.85] mb-10">
+            Access institutional-grade RFQ trading through our terminal.
+            Complete KYC/KYB onboarding and trade directly with competitive
+            pricing and deep liquidity pools.
+          </p>
+          <a href="#terminal" class="btn-primary group">
+            <span>Launch Terminal</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-500 group-hover:translate-x-1">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Features card -->
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="glass p-8 lg:p-10 border-accent/[0.08] stagger-children">
+            <div class="flex items-start gap-4 py-5 border-b border-white/[0.04]">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Request-for-quote (RFQ) based execution</span>
+            </div>
+            <div class="flex items-start gap-4 py-5 border-b border-white/[0.04]">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Competitive institutional pricing</span>
+            </div>
+            <div class="flex items-start gap-4 py-5 border-b border-white/[0.04]">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Streamlined KYC/KYB onboarding</span>
+            </div>
+            <div class="flex items-start gap-4 py-5">
+              <div class="w-1 h-1 rounded-full bg-accent mt-2.5 shrink-0"></div>
+              <span class="text-body text-steel-200">Secure, compliant trade settlement</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,42 +1,61 @@
 ---
-const stats = [
-  { value: '20%+', label: 'Of crypto volume now trades on DEXs' },
-  { value: '24/7', label: 'Always-on liquidity provision' },
-  { value: '<50ms', label: 'Quote response latency' },
-];
 ---
 
-<section id="about" class="section-padding relative">
+<section id="about" class="py-34 md:py-42 lg:py-48 relative">
   <div class="container-main">
-    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-      <!-- Left -->
-      <div class="reveal">
-        <div class="label mb-6">About Affine</div>
-        <h2 class="font-heading text-h2 text-white mb-8">
-          Accelerating the Decentralization of Global Markets
-        </h2>
-        <div class="space-y-5 text-body-lg text-steel-300">
-          <p>
-            Decentralized exchanges have come a long way since the early days of EtherDelta. Today, DEXs account for more than 20% of total crypto trading volume — driven by the rapid rise of platforms like Jupiter and Hyperliquid.
-          </p>
-          <p>
-            Yet despite this progress, decentralized markets still lag behind centralized exchanges when it comes to asset coverage and pricing efficiency.
-          </p>
-          <p>
-            Affine Trading was founded to bridge that gap. We focus on market making within DeFi markets, helping align DEX pricing with CEX benchmarks and driving liquidity where it's needed most.
+    <!-- Section header — lots of room -->
+    <div class="reveal mb-24 lg:mb-34">
+      <div class="label mb-8">About</div>
+      <h2 class="font-heading text-h1 text-white max-w-2xl">
+        Accelerating the Decentralization of Global Markets
+      </h2>
+    </div>
+
+    <!-- Two-column narrative -->
+    <div class="grid lg:grid-cols-12 gap-16 lg:gap-24">
+      <div class="lg:col-span-6 reveal">
+        <p class="text-body-lg text-steel-300 leading-[1.85] mb-8">
+          Decentralized exchanges have come a long way since the early days of EtherDelta.
+          Today, DEXs account for more than 20% of total crypto trading volume — driven
+          by the rapid rise of platforms like Jupiter and Hyperliquid.
+        </p>
+        <p class="text-body-lg text-steel-300 leading-[1.85]">
+          Yet despite this progress, decentralized markets still lag behind
+          centralized exchanges when it comes to asset coverage and pricing efficiency.
+        </p>
+      </div>
+
+      <div class="lg:col-span-5 lg:col-start-8 reveal reveal-delay-2">
+        <p class="text-body-lg text-steel-300 leading-[1.85] mb-12">
+          Affine Trading was founded to bridge that gap. We focus on market making
+          within DeFi markets, helping align DEX pricing with CEX benchmarks and
+          driving liquidity where it's needed most.
+        </p>
+
+        <!-- Mission statement — visually distinct -->
+        <div class="pl-6 border-l border-accent/30">
+          <p class="text-body text-steel-200 italic font-heading text-h4 leading-relaxed">
+            Our mission is to accelerate the decentralization of global trading
+            infrastructure.
           </p>
         </div>
       </div>
+    </div>
 
-      <!-- Right — Stats -->
-      <div class="reveal lg:pt-16" style="transition-delay: 0.15s;">
-        <div class="space-y-0">
-          {stats.map((stat, i) => (
-            <div class={`py-8 ${i < stats.length - 1 ? 'border-b border-white/[0.06]' : ''}`}>
-              <div class="font-heading text-h1 text-white mb-2">{stat.value}</div>
-              <div class="text-body text-steel-400">{stat.label}</div>
-            </div>
-          ))}
+    <!-- Stats row — lots of breathing room -->
+    <div class="mt-30 lg:mt-42 pt-16 border-t border-white/[0.04]">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 stagger-children">
+        <div class="group">
+          <div class="font-heading text-h1 text-white mb-3 transition-colors duration-500 group-hover:text-gradient">20%+</div>
+          <div class="text-body-sm text-steel-500">Of crypto volume now trades on DEXs</div>
+        </div>
+        <div class="group">
+          <div class="font-heading text-h1 text-white mb-3 transition-colors duration-500 group-hover:text-gradient">24/7</div>
+          <div class="text-body-sm text-steel-500">Always-on liquidity provision</div>
+        </div>
+        <div class="group">
+          <div class="font-heading text-h1 text-white mb-3 transition-colors duration-500 group-hover:text-gradient">&lt;50ms</div>
+          <div class="text-body-sm text-steel-500">Quote response latency</div>
         </div>
       </div>
     </div>
